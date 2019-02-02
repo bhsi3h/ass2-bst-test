@@ -368,5 +368,5 @@ void testBSTAll() {
   test_Jenna90();
   test_lizzypld();
   test_philip12();
- test_bhsieh50();
+  test_bhsieh50();
 }
