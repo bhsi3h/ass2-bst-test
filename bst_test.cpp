@@ -323,6 +323,40 @@ void test_philip12(){
   assert(binary.IsEmpty());
 }
 
+void test_bhsieh50() {
+  int arr1 [] = {1, 5, 4, 6, 7};
+  BST<int> b1(arr1, 5);
+  b1.Remove(6);
+  assert(!(b1.Contains(6)));
+
+  BST<int> b2;
+  b2 = b1;
+  assert(b2 == b1);
+
+  b2.Add(100);
+  b1.Remove(5);
+  assert(b2.getHeight() > b1.getHeight());
+
+  b2.Clear();
+  assert(b2.IsEmpty());
+
+  BST<int> b3;
+  b3.Add(20);
+  b3.Add(10);
+  b3.Add(30);
+  b3.Add(25);
+  b3.Add(35);
+
+  assert(b3.NumberOfNodes() == 5);
+
+  // inorder
+  string result = "1020253035";
+
+  TreeVisitor::ResetSS();
+  b3.InorderTraverse(TreeVisitor::visitor);
+  assert(TreeVisitor::GetSS() == result);
+}
+
 // Calling all test functions
 void testBSTAll() {
   test_pisan01();
@@ -334,4 +368,5 @@ void testBSTAll() {
   test_Jenna90();
   test_lizzypld();
   test_philip12();
+ test_bhsieh50();
 }
