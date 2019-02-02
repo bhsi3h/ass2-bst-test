@@ -326,21 +326,18 @@ void test_philip12(){
 void test_bhsieh50() {
   int arr1 [] = {1, 5, 4, 6, 7};
   BST<int> b1(arr1, 5);
+
+  assert(b1.Contains(5));
+  assert(b1.Contains(4));
   b1.Remove(6);
-  assert(!(b1.Contains(6)));
-
-  BST<int> b2;
-  b2 = b1;
-  assert(b2 == b1);
-
-  b2.Add(100);
+  assert(!b1.Contains(6));
   b1.Remove(5);
-  assert(b2.getHeight() > b1.getHeight());
-
-  b2.Clear();
-  assert(b2.IsEmpty());
+  b1.Remove(1);
+  b1.Clear();
+  assert(b1.IsEmpty());
 
   BST<int> b3;
+
   b3.Add(20);
   b3.Add(10);
   b3.Add(30);
